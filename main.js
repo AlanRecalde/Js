@@ -2,7 +2,7 @@
 let nombreIngresado = prompt("Bienvenido, cual es tu nombre?");
 alert("Hola " + nombreIngresado)
 
-let compra = prompt(nombreIngresado + " " + "deseas comprar una moto?")
+let compra = prompt(nombreIngresado + " " + "¿deseas comprar una moto?")
 
 function comprarMoto(dinero){
 const valorMoto = 600
@@ -20,12 +20,18 @@ else{
   }
 }
 
-while(compra != "si" && compra !="no"){
-    alert("por favor ingresa si o no")
-    compra = prompt("Desea comprar?")
+while (compra != "si" && compra !="no"){
+    alert("Por favor, ingresa si o no")
+    compra = prompt("¿Deseas comprar?")
 }
-if(compra == "si"){    
-    alert(comprarMoto(prompt("ingresa tu dinero disponible")))
+if(compra == "si"){ 
+    let dineroDisponible = parseFloat(prompt("ingresa tu dinero disponible"))
+    while(isNaN(dineroDisponible)) {
+        alert("Por favor, ingresa un valor mumerico")
+        dineroDisponible = parseFloat(prompt("ingresa tu dinero dinero disponible"))
+    }
+    alert(comprarMoto(dineroDisponible))   
+    
 }else{
     alert("Hasta luego.")
 }
