@@ -38,6 +38,8 @@ if(compra == "si"){
  */
 
 
+
+
 //Funcion Constructora
 
 const Producto = function(marca, modelo, precio, stock){
@@ -58,9 +60,22 @@ let producto5 = new Producto("honda", "wave", 1200000,1500)
 
 const lista = [producto1,producto2,producto3,producto4,producto5]
 
+
+
+if (localStorage.getItem("productos")) {
+    lista = JSON.parse(localStorage.getItem("productos"));
+  } else {
+    lista = lista
+  }
+
 //console.log(lista.sort())
 
 function filtrar(){
+
+    const input = document.getElementById('filtrar').value
+
+
+
     let palabraFiltro = prompt("ingresa la marca de la moto que queres buscar").trim().toLowerCase()
     let resultado = lista.filter((producto)=> producto.marca.includes(palabraFiltro))
     
@@ -72,26 +87,11 @@ function filtrar(){
     }
 }
 
-function crearProducto(){
-    let marca = prompt("ingresa la marca") 
-    let modelo = prompt("ingresa lel modelo")
-    let precio = parseFloat(prompt("ingresa el precio de la moto"))
-    let stock = parseInt(prompt("ingresa la cantidad en stock"))
+//PreventDefault
+let formulario = document.getElementById("formulario");
+formulario.addEventListener("submit", validarForm);
 
-if( marca === "" || modelo === "" || isNaN(precio) || isNaN(stock)){
-    alert("por favor ingresa valores validos")
-    return;
+function validarForm(e){
+    e.preventDefault();
+    console.log("formulario enviado");
 }
-
-let producto = new Producto(marca, modelo, precio, stock)
-if(lista.some((existe)=> existe.marca === producto.marca)){
-    alert("La moto ya existe en la lista!")
-    return;
-}
-lista.push(producto)
-
-console.table(lista)
-
-}
-
-
