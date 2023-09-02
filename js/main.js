@@ -4,37 +4,37 @@ window.onload = function () {
         {
             id: 1,
             nombre: 'PlayStation 5',
-            precio: 600,
+            precio: 9900,
             imagen: 'img/play.jpg'
         },
         {
             id: 2,
             nombre: 'Nintendo S',
-            precio: 350,
+            precio: 3850,
             imagen: 'img/nintendo.jpg'
         },
         {
             id: 3,
             nombre: 'Xbox Series S',
-            precio: 450,
+            precio: 4950,
             imagen: 'img/xboxs.jpg'
         },
         {
             id: 4,
             nombre: 'Xbox Series X',
-            precio: 750,
+            precio: 7050,
             imagen: 'img/xboxx.jpg'
         },
         {
             id: 5,
             nombre: 'PC Gamer',
-            precio: 1000,
+            precio: 18720,
             imagen: 'img/pcgamer.jpg'
         },
         {
             id: 6,
             nombre: 'Notebook',
-            precio: 1500,
+            precio: 15040,
             imagen: 'img/notebook.jpg'
         }
         
@@ -49,7 +49,7 @@ window.onload = function () {
     const DOMbotonVaciar = document.querySelector('#boton-vaciar');
     const miLocalStorage = window.localStorage;
 
-    // Funciones
+
 
     function renderizarProductos() {
         baseDeDatos.forEach((info) => {
@@ -201,5 +201,4 @@ window.onload = function () {
     renderizarCarrito();
 }
 
-// jQuery
 
